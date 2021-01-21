@@ -1,0 +1,4 @@
+There are extension for browser such as chrome for react developer to inspect react project: 
+React dev tools for Chrome - https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
+React dev tools for Firefox - https://addons.mozilla.org/en-GB/firefox/addon/react-devtools/
+
