@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BlogList from "./BlogList";
 
 // sfc = stateless functional component
 // use keyword "sfc" to auto-generate template
@@ -11,20 +12,11 @@ const Home = () => {
 
     return ( 
         <div className="home">
-            {
-                blogs.map(blog=>(
-                    <div className="blog-preview" key={blog.id /* Key is important to react for performance issue */}>
-                        <h2>{blog.title}</h2>
-                        <p>Written By {blog.author}</p>
-                    </div>
-                ))
-            }
+            <BlogList blogs={blogs} title="Blogs" />
         </div>
     );
 }
  
 export default Home;
 
-// Key is used to compare the previous state of the DOM and current state of the DOM (after changes).
-// if key is absent, react will just do DUMB shit that effect performance instead of doing some smart moves
-// react docs: https://reactjs.org/docs/reconciliation.html#recursing-on-children
+// Checkout BlogList.js and you knows everything
