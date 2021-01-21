@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 
 // sfc = stateless functional component
@@ -15,6 +15,10 @@ const Home = () => {
         setBlogs(newBlogs);
     }
 
+    useEffect(()=>{
+        console.log("React RENDERS! when blogs changes");
+    }, [blogs]);
+
     return ( 
         <div className="home">
             <BlogList blogs={blogs} title="Blogs" handleDelete={handleDelete}/>
@@ -25,4 +29,12 @@ const Home = () => {
  
 export default Home;
 
-// Checkout BlogList.js and you knows everything
+// useEffect is used to invoke a function when react renders
+// useState is active as it makes react rerenders while useEffect is passive as it run code when react renders
+// BEST FOR API
+
+/**
+ * useEffect Dependency:
+ * the second argument of useEffect is for Dependency (an array of useState constant, self-define variable gives no effect)
+ * useEffect with Dependency only run at first render or when the useState constant changed by useState set function
+ */
