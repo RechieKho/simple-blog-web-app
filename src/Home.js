@@ -1,33 +1,10 @@
-import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
+import useFetch from "./useFetch";
 
 // sfc = stateless functional component
 // use keyword "sfc" to auto-generate template
 const Home = () => {
-    const [blogs, setBlogs] = useState(null);
-    const [isPending, setIsPending] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(()=>{
-        fetch("http://localhost:8000/blogs")
-            .then(res => {
-                if(!res.ok){
-                    throw Error("Couldn't fetch data...");
-                }
-                return res.json();
-            })
-            .then(data => {
-                // if success
-                setBlogs(data);
-                setIsPending(false);
-                setError(null);
-            })
-            .catch(err => {
-                console.log(err);
-                setIsPending(false);
-                setError(err.message)
-            })
-    }, []);
+    const { data: blogs, isPending, error } = useFetch("http://localhost:8000/blogs");
 
     return ( 
         <div className="home">
