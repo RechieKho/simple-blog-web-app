@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [author, setAuthor] = useState("mario");
     const [isPending, setIsPending] = useState(false);
+    const history = useHistory();
 
     const handleSubmit = e => {
         e.preventDefault(); // default include refreshing the page which we don't want that
@@ -22,6 +24,8 @@ const Create = () => {
         .then(()=>{
             console.log("new blog added");
             setIsPending(false);
+            history.push("/");
+            // history.go() redirect to the previous site or proceed site by index (-1,1,2,etc)
         })
     }
 
