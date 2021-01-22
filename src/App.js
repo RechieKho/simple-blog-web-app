@@ -24,6 +24,4 @@ function App() {
   );
 }
 
-// exact keyword let the router compare with == instead of LIKE
-
 export default App;
