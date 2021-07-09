@@ -11,6 +11,18 @@ const Home = () => {
             {error && <div>{error}</div>}
             {isPending && <div>Loading...</div>}
             {blogs && <BlogList blogs={blogs} title="Blogs" />}
+            <button onClick={
+                ()=>{
+                    fetch("http://localhost/carddomeapi/index.php",{
+                        method: "POST",
+                        headers: {
+                            "Access-Control-Request-Headers": "Content-Type",
+                            "Content-Type":"application/json",
+                        },
+                        body : JSON.stringify({key:"value"})
+                    }).then(console.log)
+                }
+            }> FETCH </button>
         </div>
     );
 }
